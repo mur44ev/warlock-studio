@@ -1,0 +1,14 @@
+QT += core gui widgets
+TEMPLATE = app
+CONFIG += c++17 release
+CONFIG -= debug debug_and_release
+TARGET = WarlockStudio
+INCLUDEPATH += .. ../third_party/hidapi/hidapi
+SOURCES += main.cpp Device.cpp
+HEADERS += Device.h ../Protocol.h ../PresetFormat.h ../WarlockLayout.h
+LIBS += ../build/hidapi/hidapi.lib
+isEmpty(DESTDIR): DESTDIR = ../dist/studio
+OBJECTS_DIR = ../build/studio/obj
+MOC_DIR = ../build/studio/moc
+QMAKE_CXXFLAGS += /utf-8
+RC_ICONS = studio.ico
